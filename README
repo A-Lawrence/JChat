@@ -1,35 +1,39 @@
+### JChat System
+
+This is a chat system in Java which I created for a third year University module.  It makes use of Java WebService libraries.
+
 NB: This implementation of a chat server does *not* use Glassfish.
 Only the command line is required to compile and run the program.
 
-Running the Server
+## Running the Server
 1. Open a command prompt.
-2. Navigate to the directory containing “Server555804” and “Client555804”.
-3. Compile the server with “javac Server555804/*.java”.
-4. Run the server with “java Server555804.Server”
-	a. You may run this in the background using “Server555804.Server &”.
+2. Navigate to the directory containing â€œServer555804â€ and â€œClient555804â€.
+3. Compile the server with â€œjavac Server555804/*.javaâ€.
+4. Run the server with â€œjava Server555804.Serverâ€
+	a. You may run this in the background using â€œServer555804.Server &â€.
 
-Running the Client
+## Running the Client
 1. Open a command prompt.
-2. Navigate to the directory containing “Server555804” and “Client555804”.
-3. Compile the client with “javac Client555804/*.java”.
-4. Run the client with “java Client555804.Client”
-	a. You may run this in the background, using “java Client555804.Client &”.
+2. Navigate to the directory containing â€œServer555804â€ and â€œClient555804â€.
+3. Compile the client with â€œjavac Client555804/*.javaâ€.
+4. Run the client with â€œjava Client555804.Clientâ€
+	a. You may run this in the background, using â€œjava Client555804.Client &â€.
 
 Features
-• Three user levels: GUEST, USER and ADMIN.
+â€¢ Three user levels: GUEST, USER and ADMIN.
 	o GUEST only allows read access.
 	o USER allows read and write access.
 	o ADMIN allows read and write access along with admin commands.
-• Automatic termination of idle clients (if a client is idle for 2 minutes).
-• Security token for clients!
+â€¢ Automatic termination of idle clients (if a client is idle for 2 minutes).
+â€¢ Security token for clients!
 	o Upon connection, clients give the server a unique pass-phrase and the server gives the client a unique ID.
 	  Both pieces of information are required to ensure that the client is who we expect for any future interactions with the server.
-• Endless list of client commands.
-• Ability to change nickname on the fly.
-• Ability to send private messages.
-• Automatic reconnect of client when server “goes away”.
-• Colour coded user list for easy identification of user groups.
-• Colour coded messages for easier reading.  
+â€¢ Endless list of client commands.
+â€¢ Ability to change nickname on the fly.
+â€¢ Ability to send private messages.
+â€¢ Automatic reconnect of client when server â€œgoes awayâ€.
+â€¢ Colour coded user list for easy identification of user groups.
+â€¢ Colour coded messages for easier reading.  
 
 
 / Commands
@@ -38,7 +42,7 @@ NB: Parameters surrounded by <> are required; Parameters surrounded by [] are op
 
 
 /nick <username>
-Change *your* username to <username>.  If it’s not available, _x (where x is an integer) will be appended to the end of the username.
+Change *your* username to <username>.  If itâ€™s not available, _x (where x is an integer) will be appended to the end of the username.
 
 Example
 /nick Anthony
@@ -47,7 +51,7 @@ Server: Guest has changed his/her display name to Anthony.
 
 
 /msg <username> <message>
-Send a private message to <username>.  If the user doesn’t exist, an error is given.
+Send a private message to <username>.  If the user doesnâ€™t exist, an error is given.
 Aliases of this command are: /m /pm
 
 Example
@@ -69,7 +73,7 @@ Example
 Authenticates *you* as an admin on the server - password is samaria.
 
 Optional Flags
-Q – Doesn’t announce to the channel that you have been upgraded to admin.
+Q â€“ Doesnâ€™t announce to the channel that you have been upgraded to admin.
 
 Example
 /auth samaria
@@ -93,7 +97,7 @@ Server: User 'Anthony' is no longer an admin.
 
 Example
 /deauth TestDummy
-Server: User ‘TestDummy’ is no longer an admin.
+Server: User â€˜TestDummyâ€™ is no longer an admin.
 
 
 
