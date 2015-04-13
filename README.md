@@ -7,19 +7,19 @@ Only the command line is required to compile and run the program.
 
 ## Running the Server
 1. Open a command prompt.
-2. Navigate to the directory containing “Server555804” and “Client555804”.
-3. Compile the server with “javac Server555804/*.java”.
-4. Run the server with “java Server555804.Server”
-	a. You may run this in the background using “Server555804.Server &”.
+2. Navigate to the directory containing “JChatServer” and “JChatClient”.
+3. Compile the server with “javac JChatServer/*.java”.
+4. Run the server with “java JChatServer.Server”
+	a. You may run this in the background using “JChatServer.Server &”.
 
 ## Running the Client
 1. Open a command prompt.
-2. Navigate to the directory containing “Server555804” and “Client555804”.
-3. Compile the client with “javac Client555804/*.java”.
-4. Run the client with “java Client555804.Client”
-	a. You may run this in the background, using “java Client555804.Client &”.
+2. Navigate to the directory containing “JChatServer” and “JChatClient”.
+3. Compile the client with “javac JChatClient/*.java”.
+4. Run the client with “java JChatClient.Client”
+	a. You may run this in the background, using “java JChatClient.Client &”.
 
-Features
+## Features
 • Three user levels: GUEST, USER and ADMIN.
 	o GUEST only allows read access.
 	o USER allows read and write access.
@@ -36,7 +36,7 @@ Features
 • Colour coded messages for easier reading.  
 
 
-/ Commands
+## / Commands
 The following commands can be executed by clients.
 NB: Parameters surrounded by <> are required; Parameters surrounded by [] are optional.
 
