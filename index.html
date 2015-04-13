@@ -44,7 +44,11 @@ Only the command line is required to compile and run the program.</p>
 <li>Navigate to the directory containing <strong>“JChatServer”</strong> and <strong>“JChatClient”</strong>.</li>
 <li>Compile the server with <strong>javac JChatServer/*.java</strong>.</li>
 <li>Run the server with <strong>java JChatServer.Server</strong>
-a. You may run this in the background using <strong>JChatServer.Server &amp;</strong>.</li>
+
+<ul>
+<li>You may run this in the background using <strong>JChatServer.Server &amp;</strong>.</li>
+</ul>
+</li>
 </ol>
 
 <h2>
@@ -55,7 +59,11 @@ a. You may run this in the background using <strong>JChatServer.Server &amp;</st
 <li>Navigate to the directory containing <strong>JChatServer</strong> and <strong>JChatClient</strong> directories.</li>
 <li>Compile the client with <strong>javac JChatClient/*.java</strong>.</li>
 <li>Run the client with <strong>java JChatClient.Client</strong>
-a. You may run this in the background, using <strong>java JChatClient.Client &amp;</strong>.</li>
+
+<ul>
+<li>You may run this in the background, using <strong>java JChatClient.Client &amp;</strong>.</li>
+</ul>
+</li>
 </ol>
 
 <h2>
@@ -63,13 +71,17 @@ a. You may run this in the background, using <strong>java JChatClient.Client &am
 
 <ul>
 <li>Three user levels: GUEST, USER and ADMIN.
-..<em>GUEST only allows read access.
-..</em>USER allows read and write access.
-..*ADMIN allows read and write access along with admin commands.</li>
+*GUEST only allows read access.
+*USER allows read and write access.
+*ADMIN allows read and write access along with admin commands.</li>
 <li>Automatic termination of idle clients (if a client is idle for 2 minutes).</li>
 <li>Security token for clients!
-..* Upon connection, clients give the server a unique pass-phrase and the server gives the client a unique ID. 
+
+<ul>
+<li>Upon connection, clients give the server a unique pass-phrase and the server gives the client a unique ID. 
 Both pieces of information are required to ensure that the client is who we expect for any future interactions with the server.</li>
+</ul>
+</li>
 <li>Endless list of client commands.</li>
 <li>Ability to change nickname on the fly.</li>
 <li>Ability to send private messages.</li>
