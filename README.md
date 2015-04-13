@@ -40,102 +40,91 @@ Both pieces of information are required to ensure that the client is who we expe
 The following commands can be executed by clients.
 **NB**: Parameters surrounded by **<> are required**; Parameters surrounded by *[] are optional*.
 
-
-**/nick <username>**
+#### /nick *<username>*
 Change *your* username to <username>.  If it’s not available, _x (where x is an integer) will be appended to the end of the username.
 
-**Example**
+###### Example
 /nick Anthony
 Server: Guest has changed his/her display name to Anthony.
 
-**/msg <username> <message>**
+#### /msg *<username> <message>*
 Send a private message to <username>.  If the user doesn’t exist, an error is given.
 Aliases of this command are: /m /pm
 
-**Example**
+###### Example
 /pm TestDummy This is a test message.
 Private message from Anthony: This is a test message [Only seen by TestDummy]
 
-**/me <action>**
+#### /me *<action>*
 Sends an action message to the chat room!
 
-**Example**
+###### Example
 /me is writing the chat room documentation.
 * Anthony is writing the chat room documentation.
 
-#### /auth **<password>** *[flags]*
+#### /auth *<password> *[flags]*
 Authenticates *you* as an admin on the server - password is samaria.
 
 ##### Optional Flags
 Q – Doesn’t announce to the channel that you have been upgraded to admin.
 
-###### Example
+###### Example 1
 /auth samaria
 Server: User 'Anthony' is now an admin.
 
-Example
+###### Example 2
 /auth samaria Q
 Private message from Server: You are now an admin.
 
-
-
-/deauth [username]
+#### /deauth *[username]*
 If no username is given, de-authenticates *you* as an administrator of the server.
 
-Optional username
+##### Optional username
 When a username is given, that user is de-authenticated as an admin of the server.
 
-Example
+###### Example 1
 /deauth
 Server: User 'Anthony' is no longer an admin.
 
-Example
+###### Example 2
 /deauth TestDummy
 Server: User ‘TestDummy’ is no longer an admin.
 
-
-
-/warn <username> <reason>
+#### /warn *<username> <reason>*
 Provides a warning to a user, with any reason you specify.
 
-Example
+###### Example
 /warn TestDummy We are testing.
 *** Anthony gave you a warning: We are testing. [Only seen by TestDummy]
 
 
-/kick <username> <reason>
+#### /kick *<username> <reason>*
 Forcefully removes the given user from the server, with a reason.
 
-Example
+###### Example
 /kick TestDummy We warned you.
 Server: TestDummy has been kicked by Anthony
 *** Anthony has kicked you because: We warned you! [Only seen by TestDummy]
 Server: TestDummy has quit :(
 
-
-
-/silence <username>
+#### /silence *<username>*
 Silence a user by demoting them to GUEST status.
 
-Example
+###### Example
 /silence TestDummy
 Server: User 'TestDummy' has been silenced.
 Server: You are only a guest; guests cannot speak. [Only seen by TestDummy when he tries to send a message]
 
-
-
-/unsilence <username>
+#### /unsilence *<username>*
 Allow a user to speak by promoting them to USER status.
 
-Example
+###### Example
 /unsilence TestDummy
 Server: User 'TestDummy' is allowed to talk again.
 
-
-
-/setserver <key> <value>
+#### /setserver *<key> <value>*
 Set a server setting (key) to the given value.
 
-Example
+###### Example
 /setserver name This is my server!
 Private message from Server: Server name set to 'This is my server!'. [All clients will then be updated]
