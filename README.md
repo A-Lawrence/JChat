@@ -2,6 +2,9 @@
 
 This is a chat system in Java which I created for a third year University module.  It makes use of Java WebService libraries.
 
+![DemoUser1 View](https://dl.dropboxusercontent.com/u/35795574/githubProjects/JChat-1.png)
+![DemoUser2 View](https://dl.dropboxusercontent.com/u/35795574/githubProjects/JChat-2.png)
+
 NB: This implementation of a chat server does **_not_** use Glassfish.
 Only the command line is required to compile and run the program.
 
