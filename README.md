@@ -1,4 +1,4 @@
-### JChat System
+# JChat System
 
 This is a chat system in Java which I created for a third year University module.  It makes use of Java WebService libraries.
 
