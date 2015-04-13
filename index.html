@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Jchat by A-Lawrence</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Jchat</h1>
+        <h2>A java chat client implementation recovered from my time at Swansea University.</h2>
+        <a href="https://github.com/A-Lawrence/JChat" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="jchat-system" class="anchor" href="#jchat-system" aria-hidden="true"><span class="octicon octicon-link"></span></a>JChat System</h1>
+
+<p>This is a chat system in Java which I created for a third year University module.  It makes use of Java WebService libraries.</p>
+
+<p>NB: This implementation of a chat server does <strong><em>not</em></strong> use Glassfish.
+Only the command line is required to compile and run the program.</p>
+
+<h2>
+<a id="running-the-server" class="anchor" href="#running-the-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running the Server</h2>
+
+<ol>
+<li>Open a command prompt.</li>
+<li>Navigate to the directory containing <strong>“JChatServer”</strong> and <strong>“JChatClient”</strong>.</li>
+<li>Compile the server with <strong>javac JChatServer/*.java</strong>.</li>
+<li>Run the server with <strong>java JChatServer.Server</strong>
+a. You may run this in the background using <strong>JChatServer.Server &amp;</strong>.</li>
+</ol>
+
+<h2>
+<a id="running-the-client" class="anchor" href="#running-the-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running the Client</h2>
+
+<ol>
+<li>Open a command prompt.</li>
+<li>Navigate to the directory containing <strong>JChatServer</strong> and <strong>JChatClient</strong> directories.</li>
+<li>Compile the client with <strong>javac JChatClient/*.java</strong>.</li>
+<li>Run the client with <strong>java JChatClient.Client</strong>
+a. You may run this in the background, using <strong>java JChatClient.Client &amp;</strong>.</li>
+</ol>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Three user levels: GUEST, USER and ADMIN.
+..<em>GUEST only allows read access.
+..</em>USER allows read and write access.
+..*ADMIN allows read and write access along with admin commands.</li>
+<li>Automatic termination of idle clients (if a client is idle for 2 minutes).</li>
+<li>Security token for clients!
+..* Upon connection, clients give the server a unique pass-phrase and the server gives the client a unique ID. 
+Both pieces of information are required to ensure that the client is who we expect for any future interactions with the server.</li>
+<li>Endless list of client commands.</li>
+<li>Ability to change nickname on the fly.</li>
+<li>Ability to send private messages.</li>
+<li>Automatic reconnect of client when server “goes away”.</li>
+<li>Colour coded user list for easy identification of user groups.</li>
+<li>Colour coded messages for easier reading.<br>
+</li>
+</ul>
+
+<h2>
+<a id="-commands" class="anchor" href="#-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>/ Commands</h2>
+
+<p>The following commands can be executed by clients.
+<strong>NB</strong>: Parameters surrounded by <strong>&lt;&gt; are required</strong>; Parameters surrounded by <em>[] are optional</em>.</p>
+
+<h4>
+<a id="nick-" class="anchor" href="#nick-" aria-hidden="true"><span class="octicon octicon-link"></span></a>/nick <em></em>
+</h4>
+
+<p>Change <em>your</em> username to .  If it’s not available, _x (where x is an integer) will be appended to the end of the username.</p>
+
+<h6>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<p>/nick Anthony
+Server: Guest has changed his/her display name to Anthony.</p>
+
+<h4>
+<a id="msg--" class="anchor" href="#msg--" aria-hidden="true"><span class="octicon octicon-link"></span></a>/msg <em> </em>
+</h4>
+
+<p>Send a private message to .  If the user doesn’t exist, an error is given.
+Aliases of this command are: /m /pm</p>
+
+<h6>
+<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<p>/pm TestDummy This is a test message.
+Private message from Anthony: This is a test message [Only seen by TestDummy]</p>
+
+<h4>
+<a id="me-" class="anchor" href="#me-" aria-hidden="true"><span class="octicon octicon-link"></span></a>/me <em></em>
+</h4>
+
+<p>Sends an action message to the chat room!</p>
+
+<h6>
+<a id="example-2" class="anchor" href="#example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<p>/me is writing the chat room documentation.</p>
+
+<ul>
+<li>Anthony is writing the chat room documentation.</li>
+</ul>
+
+<h4>
+<a id="auth--flags" class="anchor" href="#auth--flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>/auth <em> *[flags]</em>
+</h4>
+
+<p>Authenticates <em>you</em> as an admin on the server - password is samaria.</p>
+
+<h5>
+<a id="optional-flags" class="anchor" href="#optional-flags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional Flags</h5>
+
+<p>Q – Doesn’t announce to the channel that you have been upgraded to admin.</p>
+
+<h6>
+<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 1</h6>
+
+<p>/auth samaria
+Server: User 'Anthony' is now an admin.</p>
+
+<h6>
+<a id="example-2" class="anchor" href="#example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 2</h6>
+
+<p>/auth samaria Q
+Private message from Server: You are now an admin.</p>
+
+<h4>
+<a id="deauth-username" class="anchor" href="#deauth-username" aria-hidden="true"><span class="octicon octicon-link"></span></a>/deauth <em>[username]</em>
+</h4>
+
+<p>If no username is given, de-authenticates <em>you</em> as an administrator of the server.</p>
+
+<h5>
+<a id="optional-username" class="anchor" href="#optional-username" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional username</h5>
+
+<p>When a username is given, that user is de-authenticated as an admin of the server.</p>
+
+<h6>
+<a id="example-1-1" class="anchor" href="#example-1-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 1</h6>
+
+<p>/deauth
+Server: User 'Anthony' is no longer an admin.</p>
+
+<h6>
+<a id="example-2-1" class="anchor" href="#example-2-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 2</h6>
+
+<p>/deauth TestDummy
+Server: User ‘TestDummy’ is no longer an admin.</p>
+
+<h4>
+<a id="warn--" class="anchor" href="#warn--" aria-hidden="true"><span class="octicon octicon-link"></span></a>/warn <em> </em>
+</h4>
+
+<p>Provides a warning to a user, with any reason you specify.</p>
+
+<h6>
+<a id="example-3" class="anchor" href="#example-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<p>/warn TestDummy We are testing.
+*** Anthony gave you a warning: We are testing. [Only seen by TestDummy]</p>
+
+<h4>
+<a id="kick--" class="anchor" href="#kick--" aria-hidden="true"><span class="octicon octicon-link"></span></a>/kick <em> </em>
+</h4>
+
+<p>Forcefully removes the given user from the server, with a reason.</p>
+
+<h6>
+<a id="example-4" class="anchor" href="#example-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<p>/kick TestDummy We warned you.
+Server: TestDummy has been kicked by Anthony
+*** Anthony has kicked you because: We warned you! [Only seen by TestDummy]
+Server: TestDummy has quit :(</p>
+
+<h4>
+<a id="silence-" class="anchor" href="#silence-" aria-hidden="true"><span class="octicon octicon-link"></span></a>/silence <em></em>
+</h4>
+
+<p>Silence a user by demoting them to GUEST status.</p>
+
+<h6>
+<a id="example-5" class="anchor" href="#example-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<p>/silence TestDummy
+Server: User 'TestDummy' has been silenced.
+Server: You are only a guest; guests cannot speak. [Only seen by TestDummy when he tries to send a message]</p>
+
+<h4>
+<a id="unsilence-" class="anchor" href="#unsilence-" aria-hidden="true"><span class="octicon octicon-link"></span></a>/unsilence <em></em>
+</h4>
+
+<p>Allow a user to speak by promoting them to USER status.</p>
+
+<h6>
+<a id="example-6" class="anchor" href="#example-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<p>/unsilence TestDummy
+Server: User 'TestDummy' is allowed to talk again.</p>
+
+<h4>
+<a id="setserver--" class="anchor" href="#setserver--" aria-hidden="true"><span class="octicon octicon-link"></span></a>/setserver <em> </em>
+</h4>
+
+<p>Set a server setting (key) to the given value.</p>
+
+<h6>
+<a id="example-7" class="anchor" href="#example-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h6>
+
+<p>/setserver name This is my server!
+Private message from Server: Server name set to 'This is my server!'. [All clients will then be updated]</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/A-Lawrence/JChat/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/A-Lawrence/JChat/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/A-Lawrence/JChat"></a> is maintained by <a href="https://github.com/A-Lawrence">A-Lawrence</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-53881253-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
