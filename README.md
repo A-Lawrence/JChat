@@ -10,23 +10,23 @@ Only the command line is required to compile and run the program.
 2. Navigate to the directory containing **“JChatServer”** and **“JChatClient”**.
 3. Compile the server with **javac JChatServer/*.java**.
 4. Run the server with **java JChatServer.Server**
-	a. You may run this in the background using **JChatServer.Server &**.
+   * You may run this in the background using **JChatServer.Server &**.
 
 ## Running the Client
 1. Open a command prompt.
 2. Navigate to the directory containing **JChatServer** and **JChatClient** directories.
 3. Compile the client with **javac JChatClient/*.java**.
 4. Run the client with **java JChatClient.Client**
-	a. You may run this in the background, using **java JChatClient.Client &**.
+   * You may run this in the background, using **java JChatClient.Client &**.
 
 ## Features
 * Three user levels: GUEST, USER and ADMIN.
-..*GUEST only allows read access.
-..*USER allows read and write access.
-..*ADMIN allows read and write access along with admin commands.
+  *GUEST only allows read access.
+  *USER allows read and write access.
+  *ADMIN allows read and write access along with admin commands.
 * Automatic termination of idle clients (if a client is idle for 2 minutes).
 * Security token for clients!
-..* Upon connection, clients give the server a unique pass-phrase and the server gives the client a unique ID. 
+  * Upon connection, clients give the server a unique pass-phrase and the server gives the client a unique ID. 
 Both pieces of information are required to ensure that the client is who we expect for any future interactions with the server.
 * Endless list of client commands.
 * Ability to change nickname on the fly.
